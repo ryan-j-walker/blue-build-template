@@ -1,0 +1,135 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+# image will be published to ghcr.io/<user>/<name>
+name: silverblue
+# description will be included in the image's metadata
+description: This is my personal OS Fedora Silverblue image.
+
+# the base image to build on top of (FROM) and the version tag to use
+base-image: quay.io/fedora/fedora-silverblue
+image-version: latest # You can pin to a specific version of Fedora as well
+
+# module configuration, executed in order
+# you can include multiple instances of the same module
+modules:
+  - type: files
+    files:
+      - source: system/silverblue
+        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+  
+  - type: dnf
+    repos:
+      cleanup: false
+      nonfree: rpmfusion
+    replace:
+      - from-repo: rpmfusion-free
+        allow-erasing: true
+        packages:
+          - old: ffmpeg-free
+            new: ffmpeg
+
+  - type: dnf
+    repos:
+      cleanup: true
+      copr:
+        - ublue-os/packages
+      nonfree: rpmfusion
+    remove:
+      packages:
+        - fedora-third-party
+        - firefox
+        - firefox-langpacks
+        - gnome-shell-extension-apps-menu
+        - gnome-shell-extension-background-logo
+        - gnome-shell-extension-launch-new-instance
+        - gnome-shell-extension-places-menu
+        - gnome-shell-extension-window-list
+        - gnome-software-rpm-ostree
+        - gnome-system-monitor
+    group-install:
+      with-optional: false
+      install-weak-deps: false
+      exclude:
+        - PackageKit-gstreamer-plugin
+      packages:
+        - multimedia
+    install:
+      packages:
+        - adw-gtk3-theme
+        - adwaita-fonts-all
+        - autofs
+        - bcache-tools
+        - containerd
+        - distrobox
+        - firewall-config
+        - fuse
+        - fuse-encfs
+        - fuse-libs
+        - lm_sensors
+        - lshw
+        - mesa-va-drivers-freeworld
+        - openssh-askpass
+        - podman-compose
+        - podman-machine
+        - podman-tui
+        - powerstat
+        - powertop
+        - rclone
+        - solaar
+        - solaar-udev
+        - uupd
+        - xdg-terminal-exec
+
+  - type: default-flatpaks
+    configurations:
+      - notify: false
+        scope: system
+        repo:
+          title: Flathub (system)
+  
+  - type: gnome-extensions
+    install:
+      - adw-gtk3 Colorizer
+      - Alphabetical App Grid
+      - AppIndicator and KStatusNotifierItem Support
+      - Auto Accent Colour
+      - 1262 # Bing Wallpaper
+      - Blur my Shell
+      - Coverflow Alt-Tab
+      - Dash to Panel
+      - Just Perfection
+      - OSD Volume Number
+      - Quick Settings Audio Panel
+      - User Themes
+      - Weather or Not
+  
+  - type: fonts
+    fonts:
+      google-fonts:
+        - Arvo
+        - Fira Sans
+        - Fira Mono
+      nerd-fonts:
+        - Fira Code
+
+  - type: brew
+    direct-pull: true
+    nofile-limits: true
+    brew-analytics: false
+
+  - type: script
+    scripts:
+        - silverblue/theming.sh
+        - silverblue/cleanup.sh
+
+  - type: systemd
+    system:
+      disable:
+        - rpm-ostreed-automatic.timer
+      enabled:
+        - uupd.timer
+    user:
+      enabled:
+        - podman.socket
+
+  - type: signing # this sets up the proper policy & signing files for signed images to work fully
