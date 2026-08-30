@@ -102,6 +102,15 @@ modules:
       - Quick Settings Audio Panel
       - User Themes
       - Weather or Not
+  
+  - type: fonts
+    fonts:
+      google-fonts:
+        - Arvo
+        - Fira Sans
+        - Fira Mono
+      nerd-fonts:
+        - Fira Code
 
   - type: brew
     direct-pull: true
