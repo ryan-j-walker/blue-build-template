@@ -94,7 +94,6 @@ modules:
       - AppIndicator and KStatusNotifierItem Support
       - Auto Accent Colour
       - 1262 # Bing Wallpaper
-      - Blur my Shell
       - Coverflow Alt-Tab
       - Dash to Panel
       - Just Perfection
