@@ -1,12 +1,12 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
-name: silverblue
+name: cosmic-atomic
 # description will be included in the image's metadata
-description: This is my personal Fedora Silverblue image.
+description: This is my personal Fedora Cosmic Atomic image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: quay.io/fedora/fedora-silverblue
+base-image: quay.io/repository/fedora-ostree-desktops/cosmic-atomic
 image-version: latest # You can pin to a specific version of Fedora as well
 
 # module configuration, executed in order
@@ -39,13 +39,6 @@ modules:
         - fedora-third-party
         - firefox
         - firefox-langpacks
-        - gnome-shell-extension-apps-menu
-        - gnome-shell-extension-background-logo
-        - gnome-shell-extension-launch-new-instance
-        - gnome-shell-extension-places-menu
-        - gnome-shell-extension-window-list
-        - gnome-software-rpm-ostree
-        - gnome-system-monitor
     group-install:
       with-optional: false
       install-weak-deps: false
@@ -55,13 +48,10 @@ modules:
         - multimedia
     install:
       packages:
-        - adw-gtk3-theme
-        - adwaita-fonts-all
         - autofs
         - bcache-tools
         - containerd
         - distrobox
-        - firewall-config
         - fuse
         - fuse-encfs
         - fuse-libs
@@ -78,39 +68,23 @@ modules:
         - solaar
         - solaar-udev
         - uupd
-        - xdg-terminal-exec
 
-  - type: default-flatpaks
-    configurations:
-      - notify: false
-        scope: system
-        repo:
-          title: Flathub (system)
-  
-  - type: gnome-extensions
-    install:
-      - adw-gtk3 Colorizer
-      - Alphabetical App Grid
-      - AppIndicator and KStatusNotifierItem Support
-      - Auto Accent Colour
-      - 1262 # Bing Wallpaper
-      - Coverflow Alt-Tab
-      - Dash to Panel
-      - Just Perfection
-      - OSD Volume Number
-      - Quick Settings Audio Panel
-      - User Themes
-      - Weather or Not
+  # - type: default-flatpaks
+  #   configurations:
+  #     - notify: false
+  #       scope: system
+  #       repo:
+  #         title: Flathub (system)
 
   - type: brew
     direct-pull: true
     nofile-limits: true
     brew-analytics: false
 
-  - type: script
-    scripts:
-        - silverblue/theming.sh
-        - silverblue/cleanup.sh
+  # - type: script
+  #   scripts:
+  #       - silverblue/theming.sh
+  #       - silverblue/cleanup.sh
 
   - type: systemd
     system:
