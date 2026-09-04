@@ -81,10 +81,9 @@ modules:
     nofile-limits: true
     brew-analytics: false
 
-  # - type: script
-  #   scripts:
-  #       - silverblue/theming.sh
-  #       - silverblue/cleanup.sh
+  - type: script
+    scripts:
+      - silverblue/cleanup.sh
 
   - type: systemd
     system:
