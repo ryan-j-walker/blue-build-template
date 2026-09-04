@@ -6,7 +6,7 @@ name: cosmic-atomic
 description: This is my personal Fedora Cosmic Atomic image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: quay.io/repository/fedora-ostree-desktops/cosmic-atomic
+base-image: quay.io/fedora-ostree-desktops/cosmic-atomic
 image-version: latest # You can pin to a specific version of Fedora as well
 
 # module configuration, executed in order
