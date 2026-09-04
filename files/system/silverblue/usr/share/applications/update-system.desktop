@@ -1,7 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=Update System
-Exec=bash -c 'sudo uupd; read'
-Icon=system-software-update
-Terminal=true
-Type=Application
