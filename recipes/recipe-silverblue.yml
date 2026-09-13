@@ -1,0 +1,150 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+# image will be published to ghcr.io/<user>/<name>
+name: silverblue
+# description will be included in the image's metadata
+description: This is my personal Fedora Silverblue image.
+
+# the base image to build on top of (FROM) and the version tag to use
+base-image: quay.io/fedora/fedora-silverblue
+image-version: latest # You can pin to a specific version of Fedora as well
+
+# module configuration, executed in order
+# you can include multiple instances of the same module
+modules:
+  - type: dnf
+    repos:
+      cleanup: false
+      nonfree: rpmfusion
+    replace:
+      - from-repo: rpmfusion-free
+        allow-erasing: true
+        packages:
+          - old: ffmpeg-free
+            new: ffmpeg
+    group-install:
+      with-optional: false
+      install-weak-deps: false
+      exclude:
+        - PackageKit-gstreamer-plugin
+      packages:
+        - multimedia
+    install:
+      packages:
+        - mesa-va-drivers-freeworld
+
+  - type: dnf
+    repos:
+      cleanup: false
+      nonfree: rpmfusion
+    replace:
+      - from-repo: rpmfusion-free
+        allow-erasing: true
+        packages:
+          - old: mesa-vulkan-drivers
+            new: mesa-vulkan-drivers-freeworld
+
+  - type: dnf
+    repos:
+      cleanup: true
+      files:
+        - vscodium.repo
+      nonfree: rpmfusion
+    remove:
+      packages:
+        - fedora-bookmarks
+        - fedora-chromium-config
+        - fedora-chromium-config-gnome
+        - fedora-third-party
+        - firefox
+        - firefox-langpacks
+        - gnome-shell-extension-apps-menu
+        - gnome-shell-extension-background-logo
+        - gnome-shell-extension-launch-new-instance
+        - gnome-shell-extension-places-menu
+        - gnome-shell-extension-window-list
+        - gnome-software
+        - gnome-software-rpm-ostree
+        - gnome-system-monitor
+        - gnome-tour
+    install:
+      packages:
+        - adw-gtk3-theme
+        - adwaita-fonts-all
+        - autofs
+        - bcache-tools
+        - codium
+        - containerd
+        - distrobox
+        - firewall-config
+        - fuse
+        - fuse-encfs
+        - fuse-libs
+        - heif-pixbuf-loader
+        - libheif-freeworld
+        - libheif-tools
+        - lshw
+        - openssh-askpass
+        - podman-compose
+        - podman-machine
+        - podman-tui
+        - powerstat
+        - powertop
+        - rclone
+        - solaar
+        - solaar-udev
+        - vim
+        - xdg-terminal-exec
+        - https://github.com/devsy-org/devsy/releases/latest/download/Devsy_linux_x86_64.rpm
+
+  - type: fonts
+    fonts:
+      google-fonts:
+        - Arvo
+        - Fira Code
+        - Fira Mono
+        - Fira Sans
+      nerd-fonts:
+        - NerdFontsSymbolsOnly
+
+  - type: default-flatpaks
+    configurations:
+      - notify: false
+        scope: user
+        repo:
+          title: Flathub
+
+  - type: gnome-extensions
+    install:
+      - adw-gtk3 Colorizer
+      - Alphabetical App Grid
+      - AppIndicator and KStatusNotifierItem Support
+      - Auto Accent Colour
+      - 1262 # Bing Wallpaper
+      - Blur my Shell
+      - Coverflow Alt-Tab
+      - Dash to Panel
+      - Just Perfection
+      - OSD Volume Number
+      - Quick Settings Audio Panel
+      - User Themes
+      - Weather or Not
+
+  - type: brew
+    direct-pull: true
+    nofile-limits: true
+    brew-analytics: false
+
+  - type: script
+    scripts:
+        - silverblue/theming.sh
+
+  - type: systemd
+    system:
+      disable:
+        - rpm-ostreed-automatic.timer
+    user:
+      enabled:
+        - podman.socket
+
+  - type: signing # this sets up the proper policy & signing files for signed images to work fully
