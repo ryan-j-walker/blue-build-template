@@ -24,7 +24,7 @@ modules:
       nonfree: rpmfusion
     install:
       packages:
-        - akmod-nvidia
+        - kmod-nvidia
         - xorg-x11-drv-nvidia-cuda
         - xorg-x11-drv-nvidia-cuda-libs
 
