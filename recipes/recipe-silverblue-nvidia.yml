@@ -14,7 +14,7 @@ image-version: latest # You can pin to a specific version of Fedora as well
 modules:
   - type: script
     snippets:
-      - "dnf5 config-manager setopt cuda-fedora43-%OS_VERSION%.exclude=nvidia-driver,nvidia-modprobe,nvidia-persistenced,nvidia-settings,nvidia-libXNVCtrl,nvidia-xconfig"
+      - "dnf5 config-manager setopt cuda-fedora43-x86_64.exclude=nvidia-driver,nvidia-modprobe,nvidia-persistenced,nvidia-settings,nvidia-libXNVCtrl,nvidia-xconfig"
 
   - type: dnf
     repos:
