@@ -31,7 +31,6 @@ modules:
   - type: script
     snippets:
       - "dnf config-manager setopt cuda-fedora43-x86_64.exclude=nvidia-driver,nvidia-modprobe,nvidia-persistenced,nvidia-settings,nvidia-libXNVCtrl,nvidia-xconfig"
-      - "dnf mark user akmod-nvidia"
 
   - type: dnf
     repos:
