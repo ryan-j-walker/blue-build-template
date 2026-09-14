@@ -16,7 +16,7 @@ modules:
     repos:
       cleanup: false
       files:
-        - https://developer.download.nvidia.com/compute/cuda/repos/fedora43/%OS_VERSION%/cuda-fedora43.repo
+        - https://developer.download.nvidia.com/compute/cuda/repos/fedora43/%OS_ARCH%/cuda-fedora43.repo
 
   - type: dnf
     repos:
@@ -37,7 +37,7 @@ modules:
     repos:
       cleanup: true
       files:
-        - https://developer.download.nvidia.com/compute/cuda/repos/fedora43/%OS_VERSION%/cuda-fedora43.repo
+        - https://developer.download.nvidia.com/compute/cuda/repos/fedora43/%OS_ARCH%/cuda-fedora43.repo
     install:
       packages:
         - cuda-toolkit
