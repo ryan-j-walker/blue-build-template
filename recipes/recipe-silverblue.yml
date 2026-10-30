@@ -75,6 +75,7 @@ modules:
         - containerd
         - distrobox
         - firewall-config
+        - firefox
         - fuse
         - fuse-encfs
         - fuse-libs
@@ -92,11 +93,11 @@ modules:
         - solaar
         - solaar-udev
         - xdg-terminal-exec
+        - https://proton.me/download/mail/linux/ProtonMail-desktop-beta.rpm
+        - https://proton.me/download/pass/linux/ProtonPass.rpm
 
   - type: fonts
     fonts:
-      google-fonts:
-        - Source Serif 4
       nerd-fonts:
         - NerdFontsSymbolsOnly
 
