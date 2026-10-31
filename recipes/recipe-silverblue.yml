@@ -43,7 +43,6 @@ modules:
         - fuse-encfs
         - fuse-libs
         - heif-pixbuf-loader
-        - libheif-freeworld
         - libheif-tools
         - lshw
         - openssh-askpass
