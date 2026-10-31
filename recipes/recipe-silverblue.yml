@@ -25,6 +25,7 @@ modules:
     group-install:
       with-optional: false
       install-weak-deps: false
+      skip-broken: true
       exclude:
         - PackageKit-gstreamer-plugin
       packages:
