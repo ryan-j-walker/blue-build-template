@@ -13,6 +13,41 @@ image-version: latest # You can pin to a specific version of Fedora as well
 # you can include multiple instances of the same module
 modules:
   - type: dnf
+    repos:
+      cleanup: false
+      nonfree: rpmfusion
+    replace:
+      - from-repo: rpmfusion-free
+        allow-erasing: true
+        packages:
+          - old: ffmpeg-free
+            new: ffmpeg
+    group-install:
+      with-optional: false
+      install-weak-deps: false
+      exclude:
+        - PackageKit-gstreamer-plugin
+      packages:
+        - multimedia
+    install:
+      packages:
+        - mesa-va-drivers-freeworld
+
+  - type: dnf
+    repos:
+      cleanup: false
+      nonfree: rpmfusion
+    replace:
+      - from-repo: rpmfusion-free
+        allow-erasing: true
+        packages:
+          - old: mesa-vulkan-drivers
+            new: mesa-vulkan-drivers-freeworld
+
+  - type: dnf
+    repos:
+      cleanup: true
+      nonfree: rpmfusion
     remove:
       packages:
         - fedora-bookmarks
@@ -38,13 +73,14 @@ modules:
         - containerd
         - distrobox
         - firewall-config
-        - firefox
         - fuse
         - fuse-encfs
         - fuse-libs
         - heif-pixbuf-loader
+        - libheif-freeworld
         - libheif-tools
         - lshw
+        - mozilla-openh264
         - openssh-askpass
         - podman-compose
         - podman-machine
