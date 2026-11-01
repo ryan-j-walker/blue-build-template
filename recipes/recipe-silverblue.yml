@@ -56,6 +56,7 @@ modules:
         - gnome-tour
     install:
       packages:
+        - adobe-source-serif-pro-fonts
         - adw-gtk3-theme
         - adwaita-fonts-all
         - autofs
