@@ -68,6 +68,7 @@ modules:
         - fuse-encfs
         - fuse-libs
         - heif-pixbuf-loader
+        - lm_sensors
         - lshw
         - mozilla-openh264
         - openssh-askpass
