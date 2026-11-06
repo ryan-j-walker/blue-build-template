@@ -67,6 +67,7 @@ modules:
         - fuse
         - fuse-encfs
         - fuse-libs
+        - gnome-boxes
         - heif-pixbuf-loader
         - lm_sensors
         - lshw
