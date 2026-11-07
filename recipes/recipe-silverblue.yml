@@ -112,7 +112,7 @@ modules:
       - Alphabetical App Grid
       - Auto Accent Colour
       - 1262 # Bing Wallpaper
-      - Coverflow Alt-Tab
+      # - Coverflow Alt-Tab
       - OSD Volume Number
       - Quick Settings Audio Panel
       - Weather or Not
