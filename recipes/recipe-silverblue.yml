@@ -114,7 +114,7 @@ modules:
       - 1262 # Bing Wallpaper
       # - Coverflow Alt-Tab
       - OSD Volume Number
-      - Quick Settings Audio Panel
+      # - Quick Settings Audio Panel
       - Weather or Not
 
   - type: brew
