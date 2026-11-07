@@ -68,6 +68,11 @@ modules:
         - fuse-encfs
         - fuse-libs
         - gnome-boxes
+        - gnome-shell-extension-appindicator
+        - gnome-shell-extension-blur-my-shell
+        - gnome-shell-extension-just-perfection
+        - gnome-shell-extension-dash-to-panel
+        - gnome-shell-extension-user-theme
         - heif-pixbuf-loader
         - lm_sensors
         - lshw
@@ -105,16 +110,11 @@ modules:
     install:
       - adw-gtk3 Colorizer
       - Alphabetical App Grid
-      - AppIndicator and KStatusNotifierItem Support
       - Auto Accent Colour
       - 1262 # Bing Wallpaper
-      - Blur my Shell
       - Coverflow Alt-Tab
-      - Dash to Panel
-      - Just Perfection
       - OSD Volume Number
       - Quick Settings Audio Panel
-      - User Themes
       - Weather or Not
 
   - type: brew
