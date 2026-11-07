@@ -106,16 +106,6 @@ modules:
     scripts:
         - gnome/icons.sh
 
-  - type: gnome-extensions
-    install:
-      - adw-gtk3 Colorizer
-      - Alphabetical App Grid
-      - Auto Accent Colour
-      - 1262 # Bing Wallpaper
-      - OSD Volume Number
-      - Quick Settings Audio Panel
-      - Weather or Not
-
   - type: brew
     direct-pull: true
     nofile-limits: true
