@@ -86,8 +86,6 @@ modules:
         - solaar
         - solaar-udev
         - xdg-terminal-exec
-        - https://proton.me/download/mail/linux/ProtonMail-desktop-beta.rpm
-        - https://proton.me/download/pass/linux/ProtonPass.rpm
 
   - type: fonts
     fonts:
