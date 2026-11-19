@@ -34,13 +34,11 @@ modules:
   - type: script
     snippets:
         - sudo dnf swap -y mesa-vulkan-drivers{,-freeworld}
+        - dnf config-manager setopt google-chrome.enabled=1
 
   - type: dnf
     repos:
       cleanup: true
-      files:
-        add:
-          - google-chrome
       nonfree: rpmfusion
     remove:
       packages:
@@ -105,6 +103,7 @@ modules:
 
   - type: script
     scripts:
+        - dnf config-manager setopt google-chrome.enabled=0
         - gnome/icons.sh
 
   - type: brew
