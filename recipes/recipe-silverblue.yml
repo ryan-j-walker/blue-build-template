@@ -38,6 +38,9 @@ modules:
   - type: dnf
     repos:
       cleanup: true
+      files:
+        add:
+          - google-chrome
       nonfree: rpmfusion
     remove:
       packages:
@@ -72,6 +75,7 @@ modules:
         - gnome-shell-extension-just-perfection
         - gnome-shell-extension-dash-to-panel
         - gnome-shell-extension-user-theme
+        - google-chrome-stable
         - heif-pixbuf-loader
         - lm_sensors
         - lshw
