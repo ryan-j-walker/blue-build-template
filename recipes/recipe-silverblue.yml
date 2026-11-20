@@ -74,7 +74,7 @@ modules:
         - gnome-shell-extension-just-perfection
         - gnome-shell-extension-dash-to-panel
         - gnome-shell-extension-user-theme
-        - google-chrome-stable
+        - google-chrome
         - heif-pixbuf-loader
         - lm_sensors
         - lshw
