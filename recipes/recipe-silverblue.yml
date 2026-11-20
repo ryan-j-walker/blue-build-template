@@ -43,7 +43,7 @@ modules:
   - type: script
     snippets:
         - dnf config-manager setopt google-chrome.enabled=1
-        - dnf install google-chrome-stable
+        - dnf install -y google-chrome-stable
 
   - type: dnf
     repos:
