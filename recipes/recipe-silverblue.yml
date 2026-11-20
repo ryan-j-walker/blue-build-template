@@ -46,7 +46,6 @@ modules:
         - fedora-bookmarks
         - fedora-chromium-config
         - fedora-chromium-config-gnome
-        - fedora-third-party
         - gnome-shell-extension-apps-menu
         - gnome-shell-extension-background-logo
         - gnome-shell-extension-launch-new-instance
@@ -74,7 +73,7 @@ modules:
         - gnome-shell-extension-just-perfection
         - gnome-shell-extension-dash-to-panel
         - gnome-shell-extension-user-theme
-        - google-chrome
+        - google-chrome-stable
         - heif-pixbuf-loader
         - lm_sensors
         - lshw
