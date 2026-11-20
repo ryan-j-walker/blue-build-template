@@ -38,6 +38,8 @@ modules:
   - type: dnf
     repos:
       cleanup: true
+      files:
+        - https://repo.vivaldi.com/stable/vivaldi-fedora.repo
       nonfree: rpmfusion
     remove:
       packages:
@@ -87,7 +89,8 @@ modules:
         - solaar
         - solaar-udev
         - xdg-terminal-exec
-        - https://downloads.vivaldi.com/stable/vivaldi-stable.x86_64.rpm
+        - vivaldi-snapshot
+        - vivaldi-stable
 
   - type: fonts
     fonts:
