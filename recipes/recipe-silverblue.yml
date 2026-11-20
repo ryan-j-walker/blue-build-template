@@ -42,7 +42,8 @@ modules:
 
   - type: script
     snippets:
-        - dnf config-manager --enable google-chrome
+        - dnf config-manager setopt google-chrome.enabled=1
+        - dnf install google-chrome-stable
 
   - type: dnf
     repos:
@@ -81,7 +82,6 @@ modules:
         - gnome-shell-extension-just-perfection
         - gnome-shell-extension-dash-to-panel
         - gnome-shell-extension-user-theme
-        - google-chrome-stable
         - heif-pixbuf-loader
         - lm_sensors
         - lshw
