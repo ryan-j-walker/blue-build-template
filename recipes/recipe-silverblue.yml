@@ -44,6 +44,8 @@ modules:
         - fedora-bookmarks
         - fedora-chromium-config
         - fedora-chromium-config-gnome
+        - firefox
+        - firefox-langpacks
         - gnome-shell-extension-apps-menu
         - gnome-shell-extension-background-logo
         - gnome-shell-extension-launch-new-instance
