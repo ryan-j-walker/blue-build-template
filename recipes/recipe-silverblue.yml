@@ -79,6 +79,7 @@ modules:
         - gnome-shell-extension-dash-to-panel
         - gnome-shell-extension-user-theme
         - heif-pixbuf-loader
+        - liberation-fonts-all
         - lm_sensors
         - lshw
         - mozilla-openh264
