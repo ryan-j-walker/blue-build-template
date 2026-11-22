@@ -94,7 +94,7 @@ modules:
         - solaar-udev
         - xdg-terminal-exec
         - vivaldi-snapshot
-        - repo: brave-browser
+        - repo: brave-browser-beta
           packages:
             - brave-browser-beta
 
