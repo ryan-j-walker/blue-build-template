@@ -40,7 +40,6 @@ modules:
       cleanup: true
       files:
         - https://brave-browser-rpm-beta.s3.brave.com/brave-browser-beta.repo
-        - https://repo.vivaldi.com/stable/vivaldi-fedora.repo
       nonfree: rpmfusion
       keys:
         - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
@@ -93,7 +92,6 @@ modules:
         - solaar
         - solaar-udev
         - xdg-terminal-exec
-        - vivaldi-snapshot
         - repo: brave-browser-beta
           packages:
             - brave-browser-beta
