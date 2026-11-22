@@ -39,8 +39,11 @@ modules:
     repos:
       cleanup: true
       files:
+        - https://brave-browser-rpm-beta.s3.brave.com/brave-browser-beta.repo
         - https://repo.vivaldi.com/stable/vivaldi-fedora.repo
       nonfree: rpmfusion
+      keys:
+        - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     remove:
       packages:
         - fedora-bookmarks
@@ -58,6 +61,7 @@ modules:
         - gnome-system-monitor
         - gnome-tour
     install:
+    skip-unavailable: true
       packages:
         - adobe-source-serif-pro-fonts
         - adw-gtk3-theme
@@ -90,6 +94,9 @@ modules:
         - solaar-udev
         - xdg-terminal-exec
         - vivaldi-snapshot
+        - repo: brave-browser
+          packages:
+            - brave-browser-beta
 
   - type: fonts
     fonts:
