@@ -39,8 +39,11 @@ modules:
     repos:
       cleanup: true
       files:
+        - https://brave-browser-rpm-beta.s3.brave.com/brave-browser-beta.repo
         - https://repo.vivaldi.com/stable/vivaldi-fedora.repo
       nonfree: rpmfusion
+      keys:
+        - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     remove:
       packages:
         - fedora-bookmarks
@@ -91,7 +94,9 @@ modules:
         - solaar-udev
         - xdg-terminal-exec
         - vivaldi-snapshot
-        - vivaldi-stable
+        - repo: brave-browser
+          packages:
+            - brave-browser-beta
 
   - type: fonts
     fonts:
