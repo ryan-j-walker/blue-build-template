@@ -92,6 +92,7 @@ modules:
         - solaar
         - solaar-udev
         - xdg-terminal-exec
+        - vivaldi-snapshot
         - vivaldi-stable
 
   - type: fonts
