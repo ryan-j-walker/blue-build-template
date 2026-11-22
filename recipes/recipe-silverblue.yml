@@ -58,7 +58,7 @@ modules:
         - gnome-system-monitor
         - gnome-tour
     install:
-    skip-unavailable: true
+      skip-unavailable: true
       packages:
         - adobe-source-serif-pro-fonts
         - adw-gtk3-theme
