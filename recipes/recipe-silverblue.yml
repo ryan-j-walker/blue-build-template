@@ -87,6 +87,7 @@ modules:
         - lshw
         - mozilla-openh264
         - openssh-askpass
+        - openssl3-libs
         - podman-compose
         - podman-machine
         - podman-tui
