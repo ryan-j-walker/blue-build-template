@@ -40,9 +40,11 @@ modules:
       cleanup: true
       files:
         - https://brave-browser-rpm-beta.s3.brave.com/brave-browser-beta.repo
+        - vscode.repo
       nonfree: rpmfusion
       keys:
         - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+        - https://packages.microsoft.com/keys/microsoft.asc
     remove:
       packages:
         - fedora-bookmarks
@@ -67,6 +69,7 @@ modules:
         - adwaita-fonts-all
         - autofs
         - bcache-tools
+        - code
         - containerd
         - distrobox
         - firewall-config
