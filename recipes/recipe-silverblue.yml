@@ -38,6 +38,8 @@ modules:
   - type: dnf
     repos:
       cleanup: true
+      enable:
+        - google-chrome
       files:
         - https://brave-browser-rpm-beta.s3.brave.com/brave-browser-beta.repo
         - vscode.repo
@@ -81,6 +83,7 @@ modules:
         - gnome-shell-extension-just-perfection
         - gnome-shell-extension-dash-to-panel
         - gnome-shell-extension-user-theme
+        - google-chrome-stable
         - heif-pixbuf-loader
         - liberation-fonts-all
         - lm_sensors
